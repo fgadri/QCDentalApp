@@ -2,8 +2,6 @@
 red='\033[0;31m'
 green='\033[0;32m'
 NC='\033[0m' # No Color
-
-
 echo -e "${red}Hello CS 4690 -- Let's start building your VM...${NC}"
 
 # Install dependencies
@@ -18,9 +16,8 @@ git clone https://github.com/scottalanweber/QCDentalApp.git
 rm /var/www/html/index.html
 echo '{status:ok}' >> /var/www/html/index.html
 
-
 # Setup Slim
 curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
-cd /var/www
+cd /var/www/html
 sudo composer require slim/slim
