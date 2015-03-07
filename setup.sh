@@ -12,8 +12,15 @@ sudo debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password_aga
 sudo apt-get update
 sudo apt-get -y install mysql-server-5.5 php5-mysql apache2 php5 git
 
-# Get production source code
+# Get production source code and create a healthcheck
 cd /var/www
 git clone https://github.com/scottalanweber/QCDentalApp.git 
 rm /var/www/html/index.html
 echo '{status:ok}' >> /var/www/html/index.html
+
+
+# Setup Slim
+curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
+cd /var/www
+sudo composer require slim/slim
