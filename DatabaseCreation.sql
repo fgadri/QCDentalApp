@@ -4,7 +4,7 @@ GRANT ALL PRIVILEGES ON QCDentalApp.* TO 'qcadmin'@'localhost' IDENTIFIED BY 'J2
 
 USE QCDentalApp;
 
-DROP TABLE IF EXISTS ratings, tooth_meta, teeth, departments, cases, user_roles, user_role_map, user_lab_map, users, labs, licenses, companies;
+DROP TABLE IF EXISTS ratings, rating_meta, teeth, departments, cases, user_roles, user_role_map, user_lab_map, users, labs, licenses, companies;
 
 CREATE TABLE IF NOT EXISTS companies (
 	id INT(20) NOT NULL AUTO_INCREMENT,
@@ -74,13 +74,19 @@ CREATE TABLE IF NOT EXISTS user_roles (
 CREATE TABLE IF NOT EXISTS user_role_map (
 	user_id INT(20) NOT NULL,
 	role_id INT(20) NOT NULL,
-	PRIMARY KEY (user_id, role_id)
+	PRIMARY KEY (user_id, role_id),
+	CONSTRAINT user_role UNIQUE (user_id, role_id),
+	FOREIGN KEY user_id (user_id) REFERENCES users (id),
+	FOREIGN KEY role_id (role_id) REFERENCES user_roles (id)
 ) ENGINE InnoDB DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS user_lab_map (
 	user_id INT(20) NOT NULL,
 	lab_id INT(20) NOT NULL,
-	PRIMARY KEY (user_id, lab_id)
+	PRIMARY KEY (user_id, lab_id),
+	CONSTRAINT user_lab UNIQUE (user_id, role_id),
+	FOREIGN KEY user_id (user_id) REFERENCES users (id),
+	FOREIGN KEY lab_id (lab_id) REFERENCES labs (id)
 ) ENGINE InnoDB DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS cases (
@@ -123,7 +129,7 @@ CREATE TABLE IF NOT EXISTS rating_meta (
 	FOREIGN KEY department_id (department_id) REFERENCES departments (id)
 ) ENGINE InnoDB DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
-CREATE TABLE IF NOT EXISTS RATINGS (
+CREATE TABLE IF NOT EXISTS ratings (
 	id INT(20) NOT NULL AUTO_INCREMENT,
 	rating INT(1) NOT NULL,
 	timestamp DATETIME NOT NULL,
