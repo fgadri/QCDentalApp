@@ -1,7 +1,8 @@
 CREATE DATABASE IF NOT EXISTS QCDentalApp;
 
-CREATE USER 'qcadmin'@'localhost' IDENTIFIED BY 'J2PKY!HrkYt*AB8dhz@rYw$X';
-GRANT ALL PRIVILEGES ON QCDentalApp.* TO 'qcadmin'@'localhost';
+GRANT ALL PRIVILEGES ON QCDentalApp.* TO 'qcadmin'@'localhost' IDENTIFIED BY 'J2PKY!HrkYt*AB8dhz@rYw$X';
+
+USE QCDentalApp;
 
 DROP TABLE IF EXISTS ratings, tooth_meta, teeth, departments, cases, user_roles, user_role_map, user_lab_map, users, labs, licenses, companies;
 
@@ -50,7 +51,7 @@ CREATE TABLE IF NOT EXISTS labs (
 
 CREATE TABLE IF NOT EXISTS users (
 	id INT(20) NOT NULL AUTO_INCREMENT,
-	username VARCHAR(256) NOT NULL,
+	username VARCHAR(64) NOT NULL,
 	password VARCHAR(256) NOT NULL,
 	title VARCHAR(16) NULL,
 	first_name VARCHAR(64) NOT NULL,
@@ -73,17 +74,13 @@ CREATE TABLE IF NOT EXISTS user_roles (
 CREATE TABLE IF NOT EXISTS user_role_map (
 	user_id INT(20) NOT NULL,
 	role_id INT(20) NOT NULL,
-	PRIMARY KEY (user_id, role_id),
-	FOREIGN KEY user_id (user_id) REFERENCES users (id),
-	FOREIGN KEY role_id (role_id) REFERENCES roles (id),
+	PRIMARY KEY (user_id, role_id)
 ) ENGINE InnoDB DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS user_lab_map (
 	user_id INT(20) NOT NULL,
 	lab_id INT(20) NOT NULL,
-	PRIMARY KEY (user_id, lab_id),
-	FOREIGN KEY user_id (user_id) REFERENCES users (id),
-	FOREIGN KEY lab_id (lab_id) REFERENCES labs (id),
+	PRIMARY KEY (user_id, lab_id)
 ) ENGINE InnoDB DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS cases (
@@ -123,7 +120,7 @@ CREATE TABLE IF NOT EXISTS rating_meta (
 	department_id INT(20) NOT NULL,
 	PRIMARY KEY (id),
 	CONSTRAINT name_department UNIQUE (name, department_id),
-	FOREIGN KEY department_id (department_id) REFERENCES departments (id),
+	FOREIGN KEY department_id (department_id) REFERENCES departments (id)
 ) ENGINE InnoDB DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS RATINGS (
@@ -138,7 +135,7 @@ CREATE TABLE IF NOT EXISTS RATINGS (
 	quality_control_id INT(20) NOT NULL,
 	PRIMARY KEY (id),
 	FOREIGN KEY tooth_id (tooth_id) REFERENCES teeth (id),
-	FOREIGN KEY tooth_meta_id (tooth_meta_id) REFERENCES tooth_meta (id),
+	FOREIGN KEY rating_meta_id (rating_meta_id) REFERENCES rating_meta (id),
 	FOREIGN KEY department_id (department_id) REFERENCES departments (id),
 	FOREIGN KEY technician_id (technician_id) REFERENCES users (id),
 	FOREIGN KEY quality_control_id (quality_control_id) REFERENCES users (id)
