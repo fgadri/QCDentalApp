@@ -1,10 +1,11 @@
+DROP DATABASE IF EXISTS QCDentalApp;
 CREATE DATABASE IF NOT EXISTS QCDentalApp;
 
 GRANT ALL PRIVILEGES ON QCDentalApp.* TO 'qcadmin'@'localhost' IDENTIFIED BY 'J2PKY!HrkYt*AB8dhz@rYw$X';
 
 USE QCDentalApp;
 
-DROP TABLE IF EXISTS ratings, rating_meta, teeth, departments, cases, user_role_map, user_lab_map, user_roles, users, labs, licenses, companies;
+DROP TABLE IF EXISTS ratings, rating_meta, teeth, departments, cases, user_lab_map, user_role_map, user_roles, users, labs, licenses, companies;
 
 CREATE TABLE IF NOT EXISTS companies (
 	id INT(20) NOT NULL AUTO_INCREMENT,
