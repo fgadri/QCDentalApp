@@ -24,5 +24,5 @@ sudo composer require slim/slim
 
 # Initialize the Database
 echo -e "${green}Initializing the Database...${NC}"
-cd /var/www/
+cd /var/www/QCDentalApp
 mysql -uroot -prootpass < DatabaseCreation.sql
