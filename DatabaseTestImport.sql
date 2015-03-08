@@ -1,3 +1,5 @@
+USE QCDentalApp;
+
 INSERT INTO companies VALUES 
 (10001, 'Capture Dental Arts', '1234 S 2400 E', 'Suite F', 'Pleasant Grove', 'UT', '84112', 'USA', '801-555-4564', 'Jessica Birrell'),
 (10002, 'Sparkling White Dental Implants', '9876 West Dover', null, 'New York City', 'NY', '44573', 'USA', '212-555-1234', 'Danny Birrell'),
