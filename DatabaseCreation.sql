@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS user_lab_map (
 	user_id INT(20) NOT NULL,
 	lab_id INT(20) NOT NULL,
 	PRIMARY KEY (user_id, lab_id),
-	CONSTRAINT user_lab UNIQUE (user_id, role_id),
+	CONSTRAINT user_lab UNIQUE (user_id, lab_id),
 	FOREIGN KEY user_id (user_id) REFERENCES users (id),
 	FOREIGN KEY lab_id (lab_id) REFERENCES labs (id)
 ) ENGINE InnoDB DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
