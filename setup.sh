@@ -23,13 +23,6 @@ cd /var/www/html
 sudo composer require slim/slim
 
 # Initialize the Database
+echo -e "${green}Initializing the Database...${NC}"
 cd /var/www/
 mysql -uroot -prootpass < DatabaseCreation.sql
-while true; do
-    read -p "Do you wish to enter dummy test data into the database?" yn
-    case $yn in
-        [Yy]* ) mysql -uroot -prootpass < DatabaseTestImport.sql; break;;
-        [Nn]* ) ;;
-        * ) echo "Please answer yes or no.";;
-    esac
-done
