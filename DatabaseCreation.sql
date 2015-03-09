@@ -1,7 +1,9 @@
 DROP DATABASE IF EXISTS QCDentalApp;
 CREATE DATABASE IF NOT EXISTS QCDentalApp;
+UPDATE mysql.db SET Host='%' WHERE Db='QCDentalApp'; 
 
-GRANT ALL PRIVILEGES ON QCDentalApp.* TO 'qcadmin'@'localhost' IDENTIFIED BY 'J2PKY!HrkYt*AB8dhz@rYw$X';
+GRANT ALL PRIVILEGES ON QCDentalApp.* TO 'qcadmin'@'%' IDENTIFIED BY 'J2PKY!HrkYt*AB8dhz@rYw$X';
+UPDATE mysql.user SET Host='%' WHERE user='qcadmin';
 
 USE QCDentalApp;
 

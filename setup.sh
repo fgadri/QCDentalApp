@@ -23,6 +23,11 @@ cd /var/www/html
 sudo composer require slim/slim
 
 # Initialize the Database
-echo -e "${green}Initializing the Database...${NC}"
+echo -e "${red}Initializing the Database...${NC}"
 cd /var/www/QCDentalApp
 mysql -uroot -prootpass < DatabaseCreation.sql
+echo -e "${red}Setting up database to be connected to from 192.168.66.1...${NC}"
+iptables -A INPUT -i eth0 -s 192.168.66.1 -p tcp --destination-port 3306 -j ACCEPT
+sed -i 's/127.0.0.1/192.168.66.66/' /etc/mysql/my.cnf
+service mysql restart
+echo -e "${green}Done configuring Database${NC}"

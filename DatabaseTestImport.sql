@@ -1,18 +1,18 @@
 USE QCDentalApp;
 
 INSERT INTO companies VALUES 
-(10001, 'Capture Dental Arts', '1234 S 2400 E', 'Suite F', 'Pleasant Grove', 'UT', '84112', 'USA', '801-555-4564', 'Jessica Birrell'),
-(10002, 'Sparkling White Dental Implants', '9876 West Dover', null, 'New York City', 'NY', '44573', 'USA', '212-555-1234', 'Danny Birrell'),
-(10003, 'Smith and Wesson Dental', '3006 Remington Ave', 'Suite 22', 'Albuquerque', 'NM', '87101', 'USA', '505-555-4564', 'Doc Holliday');
+(10001, 'Capture Dental Arts', 'jbirrell@example.com', '1234 S 2400 E', 'Suite F', 'Pleasant Grove', 'UT', '84112', 'USA', '801-555-4564', 'Jessica Birrell'),
+(10002, 'Sparkling White Dental Implants', 'dbirrell@example.com', '9876 West Dover', null, 'New York City', 'NY', '44573', 'USA', '212-555-1234', 'Danny Birrell'),
+(10003, 'Smith and Wesson Dental', 'dholliday@example.com', '3006 Remington Ave', 'Suite 22', 'Albuquerque', 'NM', '87101', 'USA', '505-555-4564', 'Doc Holliday');
 
 INSERT INTO licenses VALUES
 (1, 'L57QQSSMJZ6BHJ9HTYZI', 25, '2015-01-16 14:05:23', 365, 10001),
 (2, 'AL9HSUKN468UOL6OVBTK', 25, '2015-01-16 14:05:23', 365, 10002);
 
 INSERT INTO labs VALUES
-(10001, 'Capture Dental Arts', '1234 S 2400 E', 'Suite F', 'Pleasant Grove', 'UT', '84112', 'USA', '801-555-4564', 'Jessica Birrell', 10001),
-(10002, 'Sparkling White Dental Implants', '9876 West Dover', null, 'New York City', 'NY', '44573', 'USA', '212-555-1234', 'Danny Birrell', 10002),
-(10003, 'Small Dental Arts', '1234 S 2400 E', null, 'Saint George', 'UT', '84115', 'USA', '801-555-7784', 'Kirk Love', 10001);
+(10001, 'Capture Dental Arts', 'jbirrell@example.com', '1234 S 2400 E', 'Suite F', 'Pleasant Grove', 'UT', '84112', 'USA', '801-555-4564', 'Jessica Birrell', 10001),
+(10002, 'Sparkling White Dental Implants', 'dbirrell@example.com', '9876 West Dover', null, 'New York City', 'NY', '44573', 'USA', '212-555-1234', 'Danny Birrell', 10002),
+(10003, 'Small Dental Arts', 'jbirrell@example.com', '1234 S 2400 E', null, 'Saint George', 'UT', '84115', 'USA', '801-555-7784', 'Kirk Love', 10001);
 
 INSERT INTO users VALUES
 (10001, 'jbirrell', 'jessica.password', null, 'Jessica', 'Birrell', 'jbirrell@example.com', '801-555-4457', 'uploads/users/10001/10001', 10001),
@@ -37,8 +37,8 @@ INSERT INTO user_role_map VALUES
 (10005, 2);
 
 INSERT INTO user_lab_map VALUES
-(10001,10001),
-(10002,10002),
+(10001, 10001),
+(10002, 10002),
 (10001, 10003),
 (10004, 10001),
 (10005, 10003);
@@ -60,6 +60,7 @@ INSERT INTO cases VALUES
 (14, 'CDA-995-298VME9', null, 10003),
 (15, 'CDA-456-2LJKV89', null, 10001);
 
+-- Need to specify the colors for each department
 INSERT INTO departments VALUES
 (1, 'Drivers', '#00CC00', null, 10001),
 (2, 'Model', '#00CC00', null, 10001),
@@ -139,5 +140,6 @@ INSERT INTO rating_meta VALUES
 (15, 'Organized', 0, 2),
 (16, 'Works Well with Others', 0, 2);
 
+-- Need to insert Rating data
 INSERT INTO ratings VALUES
 ();
