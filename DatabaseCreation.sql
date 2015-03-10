@@ -144,7 +144,6 @@ CREATE TABLE IF NOT EXISTS ratings (
 	PRIMARY KEY (id),
 	FOREIGN KEY tooth_id (tooth_id) REFERENCES teeth (id),
 	FOREIGN KEY rating_meta_id (rating_meta_id) REFERENCES rating_meta (id),
-	FOREIGN KEY department_id (department_id) REFERENCES departments (id),
 	FOREIGN KEY technician_id (technician_id) REFERENCES users (id),
 	FOREIGN KEY quality_control_id (quality_control_id) REFERENCES users (id)
 ) ENGINE InnoDB DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
