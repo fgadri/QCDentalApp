@@ -40,7 +40,7 @@ INSERT INTO user_lab_map VALUES
 (10001, 10001),
 (10002, 10002),
 (10001, 10003),
-(10004, 10001),
+(10004, 10003),
 (10005, 10003);
 
 INSERT INTO cases VALUES
@@ -61,7 +61,6 @@ INSERT INTO cases VALUES
 (15, 'CDA-456-2LJKV89', null, 10001),
 (16, 'CDA-995-2L5HH89', null, 10003);
 
--- Need to specify the colors for each department
 INSERT INTO departments VALUES
 (1, 'Drivers', '#00CC00', null, 10001),
 (2, 'Model', '#00CC00', null, 10001),
