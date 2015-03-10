@@ -121,8 +121,9 @@ INSERT INTO teeth VALUES
 (18, 10, null, 13),
 (19, 9, null, 14),
 (20, 8, null, 15),
-(21, 1, null, 7)
-(22, 4, null, 7);
+(21, 1, null, 7),
+(22, 4, null, 7),
+(23, 9, null, 15);
 
 INSERT INTO rating_meta VALUES
 (1, 'On Time', 0, 1),
