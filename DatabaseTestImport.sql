@@ -58,7 +58,8 @@ INSERT INTO cases VALUES
 (12, 'CDA-995-8ER796G', null, 10003),
 (13, 'CDA-995-AKDU876', null, 10003),
 (14, 'CDA-995-298VME9', null, 10003),
-(15, 'CDA-456-2LJKV89', null, 10001);
+(15, 'CDA-456-2LJKV89', null, 10001),
+(15, 'CDA-995-2L5HH89', null, 10003);
 
 -- Need to specify the colors for each department
 INSERT INTO departments VALUES
