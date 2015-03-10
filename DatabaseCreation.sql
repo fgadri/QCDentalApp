@@ -139,7 +139,6 @@ CREATE TABLE IF NOT EXISTS ratings (
 	comments VARCHAR(1024) NULL,
 	tooth_id INT(20) NOT NULL,
 	rating_meta_id INT(20) NOT NULL,
-	department_id INT(20) NOT NULL,
 	technician_id INT(20) NOT NULL,
 	quality_control_id INT(20) NOT NULL,
 	PRIMARY KEY (id),

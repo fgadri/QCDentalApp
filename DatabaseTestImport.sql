@@ -33,7 +33,7 @@ INSERT INTO user_role_map VALUES
 (10002, 1),
 (10002, 2),
 (10003, 1),
-(10004, 1),
+(10004, 3),
 (10005, 2);
 
 INSERT INTO user_lab_map VALUES
@@ -140,6 +140,10 @@ INSERT INTO rating_meta VALUES
 (15, 'Organized', 0, 2),
 (16, 'Works Well with Others', 0, 2);
 
--- Need to insert Rating data
 INSERT INTO ratings VALUES
-();
+(1, 5, '2015-03-05 13:15:45', null, 1, 1, 10004, 10005),
+(1, 4, '2015-03-05 13:15:45', null, 1, 2, 10004, 10005),
+(1, 5, '2015-03-05 13:15:45', null, 1, 3, 10004, 10005),
+(1, 5, '2015-03-05 13:15:45', null, 1, 4, 10004, 10005),
+(1, 3, '2015-03-05 13:15:45', null, 1, 5, 10004, 10005),
+(1, 5, '2015-03-05 13:15:45', null, 1, 6, 10004, 10005);
