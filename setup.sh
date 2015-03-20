@@ -13,8 +13,7 @@ sudo apt-get -y install mysql-server-5.5 php5-mysql apache2 php5 git
 # Get production source code and create a healthcheck
 cd /var/www
 git clone https://github.com/scottalanweber/QCDentalApp.git 
-rm /var/www/html/index.html
-echo '{status:ok}' >> /var/www/html/index.html
+echo '{status:ok}' >> /var/www/html/health.html
 
 # Setup Slim
 curl -sS https://getcomposer.org/installer | php
