@@ -1,0 +1,17 @@
+HOW TO GET REPO:
+git clone https://github.com/scottalanweber/QCDentalApp.git
+
+Using Vagrant:
+Starting Vagrant:
+	Navigate to folder containing VagrantFile on command line (the directory you git cloned to)
+	Now run:
+		> vagrant up
+
+HOW TO GET LATEST CHANGES FROM REPO: 
+git fetch origin
+
+HOW TO COMMIT CHANGES:
+git commit -a
+
+PUSH CHANGES TO CENTRAL REPO: 
+git push -u origin
