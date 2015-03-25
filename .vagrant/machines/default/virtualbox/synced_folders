@@ -1,1 +1,0 @@
-{"virtualbox":{"/var/www/html":{"create":true,"guestpath":"/var/www/html","hostpath":"/Users/joshuarabino/src/QCDentalApp/html","disabled":false},"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/joshuarabino/src/QCDentalApp","disabled":false}}}
