@@ -11,8 +11,11 @@ sudo apt-get update
 sudo apt-get -y install mysql-server-5.5 php5-mysql apache2 php5 git
 
 # Get production source code and create a healthcheck
-cd /var/www
-git clone https://github.com/scottalanweber/QCDentalApp.git 
+sudo rm -rf /tmp/src
+mkdir /tmp/src
+sudo git clone https://github.com/scottalanweber/QCDentalApp.git /tmp/src
+rm -f /var/www/html/index.html
+sudo cp -r /tmp/src/* /var/www/
 echo '{status:ok}' >> /var/www/html/health.html
 
 # Setup Slim
@@ -23,7 +26,7 @@ sudo composer require slim/slim
 
 # Initialize the Database
 echo -e "${red}Initializing the Database...${NC}"
-cd /var/www/QCDentalApp
+cd /var/www/
 mysql -uroot -prootpass < DatabaseCreation.sql
 echo -e "${red}Setting up database to be connected to from 192.168.66.1...${NC}"
 iptables -A INPUT -i eth0 -s 192.168.66.1 -p tcp --destination-port 3306 -j ACCEPT
