@@ -17,7 +17,7 @@ class User_dao extends CI_Model {
         $retVal = array();
 
         $this->connect();
-        $sql = "SELECT u.id, u.username, u.first_name, u.last_name, u.email "
+        $sql = "SELECT u.id, u.username, u.first_name, u.last_name, u.email, u.image "
             . "FROM users u, companies c "
             . "WHERE u.company_id = c.id "
             . "AND c.id = ?";
@@ -31,11 +31,51 @@ class User_dao extends CI_Model {
                     'username' => $row->username,
                     'firstName' => $row->first_name,
                     'lastName' => $row->last_name,
-                    'email' => $row->email
+                    'email' => $row->email,
+                    'image' => $row->image
                 ));
             }
         }
         return $retVal;
+    }
+
+    public function insertUser($inputData) {
+        $this->connect();
+        $sql = "INSERT INTO users (username, password, title, first_name, last_name, email, phone, image, company_id) "
+            . "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?) "
+            . "ON DUPLICATE KEY UPDATE "
+            . "password = ?, "
+            . "title = ?, "
+            . "first_name = ?, "
+            . "last_name = ?, "
+            . "email = ?, "
+            . "phone = ?, "
+            . "image = ?";
+        $query = $this->db->query($sql, array(
+            $inputData['username'],
+            $inputData['password'],
+            $inputData['title'],
+            $inputData['firstName'],
+            $inputData['lastName'],
+            $inputData['email'],
+            $inputData['phone'],
+            $inputData['image'],
+            $inputData['companyId'],
+            $inputData['password'],
+            $inputData['title'],
+            $inputData['firstName'],
+            $inputData['lastName'],
+            $inputData['email'],
+            $inputData['phone'],
+            $inputData['image']
+        ));
+        $this->disconnect();
+
+        if($query) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /*
