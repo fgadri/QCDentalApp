@@ -18,12 +18,18 @@ rm -f /var/www/html/index.html
 sudo cp -r /tmp/src/* /var/www/
 echo '{status:ok}' >> /var/www/html/health.html
 
+# Set up Apache Config
+echo -e "${red}Setting up the Apache Config to allow .htaccess overrides...${NC}"
+sudo cp /var/www/000-default.conf /etc/apache2/sites-available/000-default.conf
+sudo service apache2 restart
+echo -e "${red}Apache configuration complete${NC}"
+
 # Initialize the Database
 echo -e "${red}Initializing the Database...${NC}"
 cd /var/www/
-mysql -uroot -prootpass < DatabaseCreation.sql
+sudo mysql -uroot -prootpass < DatabaseCreation.sql
 echo -e "${red}Setting up database to be connected to from 192.168.66.1...${NC}"
-iptables -A INPUT -i eth0 -s 192.168.66.1 -p tcp --destination-port 3306 -j ACCEPT
+sudo iptables -A INPUT -i eth0 -s 192.168.66.1 -p tcp --destination-port 3306 -j ACCEPT
 sed -i 's/127.0.0.1/192.168.66.66/' /etc/mysql/my.cnf
-service mysql restart
+sudo service mysql restart
 echo -e "${green}Done configuring Database${NC}"
