@@ -23,7 +23,7 @@ function updateNumSeats($newSeats, $companyID)
 	}
 }
 
-function updateLicenseDuration($)
+//function updateLicenseDuration($)
 
 #gets the total number of users for a given company
 function getTotalUsers($companyID)

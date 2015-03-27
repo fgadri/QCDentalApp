@@ -169,7 +169,7 @@ body {
     text-shadow: 0 1px 0 rgba(0,0,0,.1);
     background-color: #6f5499;
     background-image: 0;
-    background-image: linear-gradient(tobottom,#563d7c0,#6f5499100%);
+    background-image: linear-gradient(tobottom,#563d7c0,#6f5499,100%);
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#563d7c',endColorstr='#6F5499',GradientType=0);
 }

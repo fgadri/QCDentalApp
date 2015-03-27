@@ -428,7 +428,7 @@ ul.about-flex-slides { margin-left: 0 }
     -moz-transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
     width: 15px;
-    display: none\0/;
+    display: none;
     _display: none;
 }
 /*----image hove----*/
@@ -1187,7 +1187,7 @@ ul.tag li {
     float: left;
     margin: 0px 5px 0 0;
     border-bottom: none;
-    padding-top: ;
+    padding-top: 5px;
     list-style: none;
 }
 ul.tag li a {
@@ -1465,7 +1465,7 @@ a.btn-purchase {
     text-transform: uppercase;
     border-radius: 4px;
     -webkit-border-radius: 4px;
-    -moz-border-radius: 4px padding: 20px 40px;
+    -moz-border-radius: 4px; padding: 20px 40px;
     margin-top: 30px;
     -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
@@ -1789,7 +1789,7 @@ ul#filters > .active > span {
     border: 1px solid #d9d9d9;
 }
 .input-group-addon {
-    border: border: 1px solid #d9d9d9;
+    border: 1px solid #d9d9d9;
     border-radius: 1px;
     -moz-border-radius: 1px;
     -webkit-border-radius: 1px;
@@ -1826,7 +1826,7 @@ ul#filters > .active > span {
     padding-top: 10px;
     padding-bottom: 10px;
 }
-#searchÂ id="search" { background-color: #fff }
+#search { background-color: #fff }
 .btn-lg {
     border-radius: 1px;
     -webkit-border-radius: 1px;
