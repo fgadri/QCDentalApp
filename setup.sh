@@ -20,6 +20,7 @@ echo '{status:ok}' >> /var/www/html/health.html
 
 # Set up Apache Config
 echo -e "${red}Setting up the Apache Config to allow .htaccess overrides...${NC}"
+sudo a2enmod rewrite
 sudo cp /var/www/000-default.conf /etc/apache2/sites-available/000-default.conf
 sudo service apache2 restart
 echo -e "${red}Apache configuration complete${NC}"
