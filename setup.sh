@@ -8,7 +8,7 @@ echo -e "${red}Hello CS 4690 -- Let's start building your VM...${NC}"
 sudo debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password password rootpass'
 sudo debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password_again password rootpass'
 sudo apt-get update
-sudo apt-get -y install mysql-server-5.5 php5-mysql apache2 php5 git
+sudo apt-get -y install mysql-server-5.5 php5-mysql apache2 php5 git php5-gd php5-mcrypt
 
 # Get production source code and create a healthcheck
 sudo rm -rf /tmp/src
@@ -17,12 +17,6 @@ sudo git clone https://github.com/scottalanweber/QCDentalApp.git /tmp/src
 rm -f /var/www/html/index.html
 sudo cp -r /tmp/src/* /var/www/
 echo '{status:ok}' >> /var/www/html/health.html
-
-# Setup Slim
-curl -sS https://getcomposer.org/installer | php
-sudo mv composer.phar /usr/local/bin/composer
-cd /var/www/html
-sudo composer require slim/slim
 
 # Initialize the Database
 echo -e "${red}Initializing the Database...${NC}"

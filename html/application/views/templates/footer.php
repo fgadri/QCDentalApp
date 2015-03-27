@@ -87,28 +87,28 @@
             </div>
         </footer>
         <!--small footer end-->
-        <!-- /../js placed at the end of the document so the pages load faster -->
-        <script src="/../js/jquery.js">
+        <!-- /assets/js placed at the end of the document so the pages load faster -->
+        <script src="/assets/js/jquery.js">
         </script>
-        <script src="/../js/bootstrap.min.js">
+        <script src="/assets/js/bootstrap.min.js">
         </script>
-        <script type="text/javascript" src="/../js/hover-dropdown.js">
+        <script type="text/javascript" src="/assets/js/hover-dropdown.js">
         </script>
-        <script defer src="/../js/jquery.flexslider.js">
+        <script defer src="/assets/js/jquery.flexslider.js">
         </script>
-        <script type="text/javascript" src="/../assets/bxslider/jquery.bxslider.js">
+        <script type="text/javascript" src="/assets/assets/bxslider/jquery.bxslider.js">
         </script>
 
-        <script src="/../js/jquery.easing.min.js">
+        <script src="/assets/js/jquery.easing.min.js">
         </script>
-        <script src="/../js/link-hover.js">
+        <script src="/assets/js/link-hover.js">
         </script>
 
 
         <!--common script for all pages-->
-        <script src="/../js/common-scripts.js">
+        <script src="/assets/js/common-scripts.js">
         </script>
-        <script src="/../js/wow.min.js">
+        <script src="/assets/js/wow.min.js">
         </script>
         <script>
             wow = new WOW(

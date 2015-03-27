@@ -15,7 +15,6 @@ class Company_dao extends CI_Model {
 
     public function getCompanies() {
         $retVal = array();
-
         $this->connect();
         $sql = "SELECT c.id, c.name "
             . "FROM companies c ";

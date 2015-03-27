@@ -42,6 +42,7 @@ $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 
 $route['users'] = 'users';
+$route['users/company/(:num)'] = 'users/company/$1';
 
 
 /* End of file routes.php */
