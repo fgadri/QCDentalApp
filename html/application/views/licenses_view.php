@@ -4,9 +4,10 @@
 echo validation_errors();
 
 //using the form helper to help create the start of form code
-echo open_form("licenses");
+echo form_open("licenses");
 
 ?>
+<div class="container">
 
 	<label for="firstName">First Name </label>
 	<input type="text" name="firstName"> <br>
@@ -38,5 +39,6 @@ echo open_form("licenses");
 	<input type="submit" name="submit" value="Submit">
 	
 </form>
+</div>
 
 </html>
