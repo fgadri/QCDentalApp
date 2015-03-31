@@ -60,6 +60,6 @@ class Ratings extends REST_Controller {
     // ***** Return: Array of Rating data {}
     // *********************************************************************************
     public function user_get() {
-        $this->response('You hit the "/api/ratings" endpoint');
+        $this->response('You hit the "/api/ratings/user" endpoint');
     }
 }
