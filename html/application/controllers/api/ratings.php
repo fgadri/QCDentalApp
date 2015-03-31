@@ -33,7 +33,7 @@ class Ratings extends REST_Controller {
     // ***** Return: ID of the updated/inserted rating. 0 if no changes were made
     // *********************************************************************************
     public function index_post() {
-        // Post Parameters
+        // POST Parameters
         $rating_id = $this->input->post('rating_id');
         $rating = $this->input->post('rating');
         $timestamp = date('Y-M-d H:i:s');
@@ -60,6 +60,13 @@ class Ratings extends REST_Controller {
     // ***** Return: Array of Rating data {}
     // *********************************************************************************
     public function user_get() {
-        $this->response('You hit the "/api/ratings/user" endpoint');
+        // GET Parameters
+        $user_id = $this->input->get('id');
+        
+        // Load the Model and call the get_rating_by_user function
+        $this->load->model('Ratings_dao');
+        $ratings = $this->Ratings_dao->get_rating_by_user($user_id);
+                
+        $this->response($ratings);
     }
 }
