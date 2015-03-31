@@ -10,11 +10,6 @@ class Licenses extends CI_Controller {
 	*/
 
 	public function index() {
-		//load the form helper class 
-		$this->load->helper("form");
-		//load the form validation classes
-		$this->load->library("form_validation");
-
 		//setup the validation rules for the form
 		$this->form_validation->set_rules("firstName", "First Name", "required");
 		$this->form_validation->set_rules("lastName", "Last Name", "required");
