@@ -6,8 +6,8 @@ INSERT INTO companies VALUES
 (10003, 'Smith and Wesson Dental', 'dholliday@example.com', '3006 Remington Ave', 'Suite 22', 'Albuquerque', 'NM', '87101', 'USA', '505-555-4564', 'Doc Holliday');
 
 INSERT INTO licenses VALUES
-(1, 'L57QQSSMJZ6BHJ9HTYZI', 25, '2015-01-16 14:05:23', 365, 10001),
-(2, 'AL9HSUKN468UOL6OVBTK', 25, '2015-01-16 14:05:23', 365, 10002);
+(1, 'L57QQSSMJZ6BHJ9HTYZI', 25, '2014-02-18 15:22:55', '2015-02-18 15:22:55', 10001),
+(2, 'AL9HSUKN468UOL6OVBTK', 30, '2015-01-16 14:05:23', '2016-01-16 14:05:23', 10002);
 
 INSERT INTO labs VALUES
 (10001, 'Capture Dental Arts', 'jbirrell@example.com', '1234 S 2400 E', 'Suite F', 'Pleasant Grove', 'UT', '84112', 'USA', '801-555-4564', 'Jessica Birrell', 10001),
