@@ -51,11 +51,8 @@ class Licenses extends CI_Controller {
 
 			//define email characteristics
 			$this->email->from($email, $fullName);
-<<<<<<< HEAD
-			$this->email->to(); //<------ MODIFY THIS TO AN ACTUAL RECIPIENT. I have tested it with my gmail account as recipient
-=======
 			$this->email->to('CaptureDental@gmail.com'); //<------ MODIFY THIS TO AN ACTUAL RECIPIENT. I have tested it with my gmail account as recipient
->>>>>>> 68b909c83a922ea3928e886011553a81149308e3
+
 
 			$this->email->subject($cName.' needs their license modified');
 			$this->email->message($fullName." from ".$cName." has requested that their license be modified. Here is a full list of the provided info:\n\nFull Name: ".$fullName."\nCompany Name: ".$cName."\nAddress: ".$fullAddress."\nPhone Number: ".$phone."\nEmail: ".$email);
