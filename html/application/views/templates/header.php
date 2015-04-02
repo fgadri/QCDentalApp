@@ -107,8 +107,8 @@
                             <a href="contact.html">Contact</a>
                         </li>
                         <li>
-                            <!-- <a href="login.html">Log In</a> -->
-                            <a href="login">Log-In</a>
+                            <a href="login">Log In</a>
+                            <?php ?>
                         </li>
                         <li><input class="form-control search" placeholder=" Search" type="text"></li>
                     </ul>

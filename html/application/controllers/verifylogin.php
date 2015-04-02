@@ -28,15 +28,18 @@ class VerifyLogin extends CI_Controller {
 			//go to private areas -> show view based on who logged in
 
 			//This calls a home controller -> this could redirect to specific pages that have been built. They would also need to have created controllers as well
-			redirect('home', 'refresh');
+			redirect('test', 'refresh');
 		}
 	}
 
 	function check_database($password) {
+		$this->load->model('User_dao');
 		$username = $this->input->post('username');
 
 		//query the database
 		$result = $this->User_dao->login($username, $password);
+
+		//var_dump($result);
 
 		if ($result) {
 			$session_array = array();
@@ -63,8 +66,4 @@ class VerifyLogin extends CI_Controller {
 		}
 	}
 }
-
-
-
-
-?>
+/* End of File */

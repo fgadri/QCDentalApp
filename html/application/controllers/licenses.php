@@ -65,7 +65,7 @@ class Licenses extends CI_Controller {
 		}
 	}
 
+	
 }
 
-
-?>
+/* End of File */
