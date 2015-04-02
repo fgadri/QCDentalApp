@@ -44,6 +44,10 @@ $route['404_override'] = '';
 $route['users'] = 'users';
 $route['users/company/(:num)'] = 'users/company/$1';
 
+$route['ratings'] = 'ratings';
+$route['ratings/company/(:num)'] = 'ratings/company/$1';
+$route['ratings/tech/(:num)'] = 'ratings/tech/$1';
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

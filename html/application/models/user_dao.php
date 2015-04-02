@@ -13,6 +13,30 @@ class User_dao extends CI_Model {
         parent::__construct();
     }
 
+
+    public function getAllTechs() {
+        $retVal = array();
+        $this->connect();
+        $sql = "SELECT u.id, u.username, u.first_name, u.last_name, u.email "
+            . "FROM users u, user_roles r "
+            . "WHERE r.name = 'Technician'";
+        $query = $this->db->query($sql, array());
+        $this->disconnect();
+
+        if($query->num_rows > 0) {
+            foreach($query->result() as $row) {
+                array_push($retVal, array(
+                    'id' => $row->id,
+                    'username' => $row->username,
+                    'first_name' => $row->first_name,
+                    'last_name' => $row->last_name,
+                    'email' => $row->email
+                ));
+            }
+        }
+        return $retVal;
+    }
+
     public function getUsersByCompany($companyId) {
         $retVal = array();
 
