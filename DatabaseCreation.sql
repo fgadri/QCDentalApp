@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS licenses (
 	license VARCHAR(32) NOT NULL,
 	seats_available INT(10) NOT NULL,
 	purchase_date DATETIME NOT NULL,
-	duration INT(10) NOT NULL,
+	end_date DATETIME NOT NULL,
 	company_id INT(20) NOT NULL,
 	PRIMARY KEY (id),
 	FOREIGN KEY company_id (company_id) REFERENCES companies (id)
