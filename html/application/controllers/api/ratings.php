@@ -21,33 +21,9 @@ class Ratings extends REST_Controller {
     // ***** Return: Array of Rating data {}
     // *********************************************************************************
     public function index_get() {
-        $data = array();
-        $this->load->model('Company_dao');
-        $this->load->model('User_dao');
         $this->load->model('Ratings_dao');
-        $alltechs = $this->User_dao->getAllTechs();
-        $data['alltechs'] = array();
-        foreach($alltechs as $tech) {
-            $data['alltechs'][$tech['id']] = array (
-                'id' => $tech['id'],
-                'first_name' => $tech['first_name'],
-                'last_name' => $tech['last_name'],
-                'ratings' => array()
-                );
-            $ratings = $this->Ratings_dao->get_rating_by_user($tech['id']);
-            foreach($ratings as $rating) {
-                $data['alltechs'][$tech['id']]['ratings'][$rating['id']] = array(
-                    'id' => $rating['id'],
-                    'rating' => $rating['rating'],
-                    'timestamp' => $rating['timestamp'],
-                    'tooth_number' => $rating['tooth_number'],
-                    'rating_meta' => $rating['rating_meta'],
-                    'technician' => $rating['technician'],
-                    'qcadmin' => $rating['qcadmin']
-                    );
-            }
-        }
-        $this->response($data,200);
+        $ratings = $this->Ratings_dao->get_all_ratings();
+        $this->response($ratings);
     }
 
 
@@ -78,6 +54,25 @@ class Ratings extends REST_Controller {
         $this->response($updated_rating_id);
     }
     
+    // *********************************************************************************
+    // ***** Get the ratings for a specific user
+    // ***** Endpoint: /api/ratings/user
+    // ***** Request Method: GET
+    // *****
+    // ***** Parameters: Company Id
+    // ***** Return: Array of Rating data {}
+    // *********************************************************************************
+    public function company_get() {
+        // GET Parameters
+        $company_id = $this->input->get('id');
+        
+        // Load the Model and call the get_rating_by_user function
+        $this->load->model('Ratings_dao');
+        $ratings = $this->Ratings_dao->get_rating_by_company($company_id);
+                
+        $this->response($ratings);
+    }
+
     // *********************************************************************************
     // ***** Get the ratings for a specific user
     // ***** Endpoint: /api/ratings/user

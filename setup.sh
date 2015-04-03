@@ -29,7 +29,7 @@ echo -e "${green}Apache configuration complete${NC}"
 debconf-set-selections <<< "postfix postfix/mailname string  vagrant-ubuntu-trusty-64"
 debconf-set-selections <<< "postfix postfix/main_mailer_type string 'Internet Site'"
 sudo apt-get install postfix mailutils -y
-	# Modify /etc/postfix/main.cf Config
+# Modify /etc/postfix/main.cf Config
 sudo sed -i 's/.*relayhost =.*/&[smtp.gmail.com]:587\nsmtp_sasl_auth_enable = yes\nsmtp_sasl_password_maps = hash:\/etc\/postfix\/sasl_passwd\nsmtp_sasl_security_options = noanonymous\nsmtp_tls_CAfile = \/etc\/postfix\/cacert.pem\nsmtp_use_tls = yes/' /etc/postfix/main.cf
 	
 sudo echo '[smtp.gmail.com]:587    CaptureDental@gmail.com:!!CaptureDental!!' > /tmp/sasl_passwd

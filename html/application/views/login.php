@@ -13,8 +13,8 @@
             <!-- <form class="form-signin wow fadeInUp" action="index.html"> -->
             <h2 class="form-signin-heading">sign in now</h2>
             <div class="login-wrap">
-                <input type="text" class="form-control" id="username" placeholder="User ID" autofocus>
-                <input type="password" class="form-control" id="password" placeholder="Password">
+                <input type="text" class="form-control" id="username" name="username" placeholder="User ID" autofocus>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                 <!-- <label class="checkbox">
                     <input type="checkbox" value="remember-me"> Remember me
                     <span class="pull-right">
@@ -22,7 +22,7 @@
 
                     </span>
                 </label> -->
-                <button class="btn btn-lg btn-login btn-block" type="submit">Sign in</button>
+                <input class="btn btn-lg btn-login btn-block" name="submit" type="submit" value="Login" > </br>
                 <!-- <p>or you can sign in via social network</p> -->
                 <!-- <div class="login-social-link">
                     <a href="index.html" class="facebook">
@@ -45,7 +45,7 @@
 
             	<!-- This modal is only needed if there is an option for forgot my password -->
                <!-- Modal -->
-              <div aria-hidden="true" aria-labelledby="myModal" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+              <!-- <div aria-hidden="true" aria-labelledby="myModal" role="dialog" tabindex="-1" id="myModal" class="modal fade">
                   <div class="modal-dialog">
                       <div class="modal-content">
                           <div class="modal-header">
@@ -63,7 +63,7 @@
                           </div>
                       </div>
                   </div>
-              </div>
+              </div> -->
               <!-- modal -->
 
           <?php form_close(); ?>

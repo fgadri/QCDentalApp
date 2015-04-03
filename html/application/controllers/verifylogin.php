@@ -10,6 +10,7 @@ class VerifyLogin extends CI_Controller {
 	function __construct() {
 		parent::__construct();
 		$this->load->model('User_dao');
+		$this->load->model('License_dao');
 	}
 
 	public function index() {
@@ -27,16 +28,27 @@ class VerifyLogin extends CI_Controller {
 
 			//go to private areas -> show view based on who logged in
 
-			//This calls a home controller -> this could redirect to specific pages that have been built. They would also need to have created controllers as well
-			redirect('home', 'refresh');
+			//This calls a test controller -> this could redirect to specific pages that have been built. They would also need to have created controllers as well
+			$session_data = $this->session->userdata('logged_in');
+			$companyId = $session_data['companyId'];
+			if ($this->getDiff($companyId) >= 0)
+
+				//echo "Days left: ".$this->getDiff($companyId);
+				redirect('test', 'refresh');
+			else 
+				redirect('licenses', 'refresh');
+
 		}
 	}
 
 	function check_database($password) {
+		
 		$username = $this->input->post('username');
 
 		//query the database
 		$result = $this->User_dao->login($username, $password);
+
+		//var_dump($result);
 
 		if ($result) {
 			$session_array = array();
@@ -62,9 +74,12 @@ class VerifyLogin extends CI_Controller {
 			return false;
 		}
 	}
+
+	public function getDiff($companyId) {
+		$this->load->model('License_dao');
+		$diffVal = $this->License_dao->getDateDiff($companyId);
+
+		return $diffVal;
+	}
 }
-
-
-
-
-?>
+/* End of File */

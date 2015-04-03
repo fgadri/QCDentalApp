@@ -106,7 +106,7 @@ class User_dao extends CI_Model {
     public function login($username, $password)
     {
         $this->connect();
-        $sql = "SELECT username, password FROM users WHERE username = ? AND password = ?";
+        $sql = "SELECT * FROM users WHERE username = ? AND password = ?";
         $query = $this->db->query($sql, array($username, $password));
         $this->disconnect();
 

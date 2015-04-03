@@ -106,6 +106,79 @@ class Ratings_dao extends CI_Model {
     }
 
     // *********************************************************************************
+    // ***** Get ratings for a specific user
+    // *****
+    // ***** Parameters: Company ID
+    // ***** Return: Array of Rating Data - Rating ID, Rating, Timestamp, Comments, Tooth Number, Rating Meta, Technician, QC Admin 
+    // *********************************************************************************
+    public function get_rating_by_company($company_id) {
+        $retVal = array();
+
+        $this->connect();
+        $sql = "SELECT r.id AS rating_id, r.rating, r.timestamp, t.tooth_number, rm.name AS rating_name, tech.username AS technician, tech.company_id AS company_id, qcadmin.username AS qcadmin "
+            ."FROM ratings r, teeth t, rating_meta rm, users tech, users qcadmin "
+            ."WHERE r.tooth_id = t.id "
+            ."AND r.rating_meta_id = rm.id "
+            ."AND r.technician_id = tech.id "
+            ."AND r.quality_control_id = qcadmin.id "
+            ."AND tech.company_id = ?;";
+        $query = $this->db->query($sql, array($company_id));
+
+        if($query->num_rows > 0) {
+            foreach($query->result() as $row) {
+                array_push($retVal, array(
+                    'id' => $row->rating_id,
+                    'rating' => $row->rating,
+                    'timestamp' => $row->timestamp,
+                    'tooth_number' => $row->tooth_number,
+                    'rating_meta' => $row->rating_name,
+                    'technician' => $row->technician,
+                    'qcadmin' => $row->qcadmin
+                ));
+            }
+        }
+        
+        return $retVal;
+    }
+
+    // *********************************************************************************
+    // ***** Get all ratings
+    // *****
+    // ***** Parameters: none
+    // ***** Return: Array of Rating Data - Rating ID, Rating, Timestamp, Comments, Tooth Number, Rating Meta, Technician, QC Admin 
+    // *********************************************************************************
+    public function get_all_ratings() {
+        $retVal = array();
+
+        $this->connect();
+        $sql = "SELECT r.id AS rating_id, r.rating, r.timestamp, t.tooth_number, rm.name AS rating_name, tech.username AS technician, qcadmin.username AS qcadmin "
+            ."FROM ratings r, teeth t, rating_meta rm, users tech, users qcadmin "
+            ."WHERE r.tooth_id = t.id "
+            ."AND r.rating_meta_id = rm.id "
+            ."AND r.technician_id = tech.id "
+            ."AND r.quality_control_id = qcadmin.id ";
+        $query = $this->db->query($sql);
+
+        if($query->num_rows > 0) {
+            foreach($query->result() as $row) {
+                array_push($retVal, array(
+                    'id' => $row->rating_id,
+                    'rating' => $row->rating,
+                    'timestamp' => $row->timestamp,
+                    'tooth_number' => $row->tooth_number,
+                    'rating_name' => $row->rating_name,
+                    'technician' => $row->technician,
+                    'qcadmin' => $row->qcadmin
+                ));
+            }
+        }
+        
+        return $retVal;
+    }
+
+
+
+    // *********************************************************************************
     // ***** Private Functions
     // *********************************************************************************
     private function connect() {
